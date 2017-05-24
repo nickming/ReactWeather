@@ -1,7 +1,3 @@
-# 基于ReactNative简单天气应用
-
-[TOC]
-
 ## ReactWeather
 
 基于ReactNative的简单展示天气的应用,下图是部分在iphone上运行效果，后续再Android上的运行效果会后续补充。
