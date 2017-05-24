@@ -52,16 +52,57 @@ export default class Weather extends Component {
         }
     }
 
+    _closeDrawer = () => {
+        alert('hello')
+    }
 
-    render() {
+    _renderAndroid = () => {
         var navigation = this.props.navigation;
         return (
             <DrawerLayout
-                drawerLockMode={'unlocked'}
+                drawerLockMode={'locked-closed'}
                 drawerWidth={300}
                 ref="drawer"
                 drawerPosition={DrawerLayout.positions.Left}
-                renderNavigationView={()=><ControlPanel navigation={navigation}/>}>
+                renderNavigationView={()=><ControlPanel callback={this._closeDrawer} navigation={navigation} />}>
+                <Image style={styles.container} source={{url:ApiConfig.backgroundWallpaper}}
+                       resizeMethod={'scale'} blurRadius={25}>
+                </Image>
+                <View style={styles.container}>
+                    <NavigationHeader navigation={this.props.navigation} onPress={this._openControlPanel}/>
+                    <ScrollView style={styles.container}
+                                scrollEventThrottle={200}
+                                onScroll={(e)=>this._handleScrollEvent(e)}
+                                showsVerticalScrollIndicator={false}
+                                refreshControl={
+                    <RefreshControl
+                        refreshing={weatherStore.loading}
+                        onRefresh={this._refreshWeatherData}
+                        tintColor={'white'}
+                        titleColor={'white'}
+                        title={weatherStore.loading?"刷新中...":'下拉刷新'}/>}>
+                        <Header/>
+                        <Divider/>
+                        <HourlyForecast/>
+                        <Divider/>
+                        <DailyForecast/>
+                        <AirCondition/>
+                        <LifeSuggestion/>
+                    </ScrollView>
+                </View>
+            </DrawerLayout>
+        )
+    }
+
+    _renderIOS = () => {
+        var navigation = this.props.navigation;
+        return (
+            <DrawerLayout
+                drawerLockMode={'locked-closed'}
+                drawerWidth={300}
+                ref="drawer"
+                drawerPosition={DrawerLayout.positions.Left}
+                renderNavigationView={()=><ControlPanel callback={this._closeDrawer} navigation={navigation} />}>
                 <Image style={styles.container} source={{url:ApiConfig.backgroundWallpaper}}
                        resizeMethod={'scale'} blurRadius={25}>
                     <NavigationHeader navigation={this.props.navigation} onPress={this._openControlPanel}/>
@@ -70,13 +111,12 @@ export default class Weather extends Component {
                                 onScroll={(e)=>this._handleScrollEvent(e)}
                                 showsVerticalScrollIndicator={false}
                                 refreshControl={
-                            <RefreshControl
-                                refreshing={weatherStore.loading}
-                                onRefresh={this._refreshWeatherData}
-                                tintColor={'white'}
-                                titleColor={'white'}
-                                title={weatherStore.loading?"刷新中...":'下拉刷新'}/>
-                        }>
+                    <RefreshControl
+                        refreshing={weatherStore.loading}
+                        onRefresh={this._refreshWeatherData}
+                        tintColor={'white'}
+                        titleColor={'white'}
+                        title={weatherStore.loading?"刷新中...":'下拉刷新'}/>}>
                         <Header/>
                         <Divider/>
                         <HourlyForecast/>
@@ -86,17 +126,25 @@ export default class Weather extends Component {
                         <LifeSuggestion/>
                     </ScrollView>
                 </Image>
+
             </DrawerLayout>
         )
+    }
+
+
+    render() {
+
+        if (__ANDORID__) {
+            return this._renderAndroid();
+        } else {
+            return this._renderIOS();
+        }
     }
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        backgroundColor: 'rgb(54,57,66)'
     }
 });
-
-const drawerStyles = {
-    drawer: {shadowColor: '#000000', shadowOpacity: 0.8, shadowRadius: 3}
-}

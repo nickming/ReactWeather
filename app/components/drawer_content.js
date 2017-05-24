@@ -28,6 +28,8 @@ export default class ControlPanel extends Component {
                 color: 'white',
                 onPress: () => {
                     stateStore.removeCityByName(item.cityName);
+                    let callback = this.props.callback;
+                    callback();
                 }
             }
         ];
@@ -73,7 +75,8 @@ export default class ControlPanel extends Component {
                 <TouchableOpacity onPress={()=>navigation.navigate('SettingScreen')}>
                     <View
                         style={{height:40,backgroundColor:'rgb(63,70,78)',alignItems:'center',flexDirection:'row',justifyContent:'space-between'}}>
-                        <View style={{height:40,backgroundColor:'rgb(63,70,78)',alignItems:'center',flexDirection:'row'}}>
+                        <View
+                            style={{height:40,backgroundColor:'rgb(63,70,78)',alignItems:'center',flexDirection:'row'}}>
                             <Icon name='picture' color={'white'} size={15}
                                   style={{backgroundColor:'transparent',marginLeft:20}}></Icon>
                             <Text style={[styles.normalText,{textAlign: 'center',marginLeft:10}]}>更换壁纸</Text>
@@ -85,7 +88,8 @@ export default class ControlPanel extends Component {
                 <TouchableOpacity onPress={()=>navigation.navigate('SettingScreen')}>
                     <View
                         style={{height:40,backgroundColor:'rgb(63,70,78)',alignItems:'center',flexDirection:'row',justifyContent:'space-between'}}>
-                        <View style={{height:40,backgroundColor:'rgb(63,70,78)',alignItems:'center',flexDirection:'row'}}>
+                        <View
+                            style={{height:40,backgroundColor:'rgb(63,70,78)',alignItems:'center',flexDirection:'row'}}>
                             <Icon name='settings' color={'white'} size={15}
                                   style={{backgroundColor:'transparent',marginLeft:20}}></Icon>
                             <Text style={[styles.normalText,{textAlign: 'center',marginLeft:10}]}>设置</Text>

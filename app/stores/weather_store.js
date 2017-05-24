@@ -87,6 +87,7 @@ class WeatherStore {
                 let weatherData = jsonData.HeWeather5[0];
                 this.changeCurrentCityName(weatherData.basic.city);
                 this.saveWeatherData(jsonData);
+                this.loading = false;
             })
             .done();
     }
@@ -105,6 +106,7 @@ class WeatherStore {
             })
             .then((jsonData) => {
                 this.saveWeatherData(jsonData);
+                this.loading = false;
             })
             .done();
     }
@@ -118,7 +120,6 @@ class WeatherStore {
         this.weatherMap.set(weatherData.basic.city, new Weather(weatherData));
         this.convertAqiToList(weatherData);
         this.convertSuggestionList(weatherData);
-        this.loading = false;
         this.saveCityItem(weatherData);
     }
 
@@ -140,7 +141,6 @@ class WeatherStore {
         }
         stateStore.saveLocalCityData();
     }
-
 
 
     convertAqiToList(weatherData) {
@@ -190,6 +190,8 @@ class WeatherStore {
         if (this.getCurrentCityWeather() != null) {
             this.convertSuggestionList(this.getCurrentCityWeather());
             this.convertAqiToList(this.getCurrentCityWeather());
+        } else {
+            this.requestWeatherByName(name);
         }
     }
 

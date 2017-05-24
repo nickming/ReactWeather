@@ -39,8 +39,14 @@ export default class AirCondition extends Component {
     }
 
     render() {
-        let marginLeftValue = weatherStore.loading ? 0 : weatherStore.getCurrentCityWeather().aqi.city.aqi;
-        let offset=marginLeftValue;
+        let marginLeftValue = 0;
+        if (!weatherStore.loading) {
+            let weatherData = weatherStore.getCurrentCityWeather();
+            if (weatherData != null) {
+                marginLeftValue = weatherData.aqi.city.aqi;
+            }
+        }
+        let offset = marginLeftValue;
         if (offset > 330)
             offset = 330;
         return (
