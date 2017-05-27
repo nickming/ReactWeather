@@ -26,6 +26,7 @@ var storage = new Storage({
     // 或是写到另一个文件里，这里require引入
     // 或是在任何时候，直接对storage.sync进行赋值修改
     // sync: require('./sync')  // 这个sync文件是要你自己写的
+
 });
 
 export default storage;
