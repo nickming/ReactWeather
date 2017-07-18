@@ -9,6 +9,7 @@
   "dependencies": {
     "mobx": "^3.1.9",
     "mobx-react": "^4.1.8",
+    "native-speech": "^0.1.0",
     "react": "16.0.0-alpha.6",
     "react-native": "0.44.0",
     "react-native-button": "^1.8.2",
