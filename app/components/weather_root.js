@@ -17,7 +17,6 @@ import weatherStore from '../stores/weather_store';
 import DrawerLayout from 'react-native-drawer-layout'
 import ApiConfig from '../config/index'
 import stateStore from '../stores/state_store'
-import Speech from 'native-speech'
 
 @observer
 export default class Weather extends Component {
@@ -42,9 +41,6 @@ export default class Weather extends Component {
 
     _refreshWeatherData = () => {
         weatherStore.requestWeatherByName(weatherStore.currentCityName);
-        Speech.speak('hello world',()=>{
-            alert('回调成功!');
-        })
     }
 
     _handleScrollEvent = (event) => {
@@ -59,7 +55,10 @@ export default class Weather extends Component {
     _closeDrawer = () => {
         alert('hello')
     }
-
+    
+    /**
+     * 渲染Android页面
+     */
     _renderAndroid = () => {
         var navigation = this.props.navigation;
         return (
@@ -98,6 +97,9 @@ export default class Weather extends Component {
         )
     }
 
+    /**
+     * 渲染ios页面，自带图片背景，android显示有问题
+     */
     _renderIOS = () => {
         var navigation = this.props.navigation;
         return (
@@ -110,7 +112,7 @@ export default class Weather extends Component {
                 <Image style={styles.container} source={{url:ApiConfig.backgroundWallpaper}}
                        resizeMethod={'scale'} blurRadius={25}>
                     <NavigationHeader navigation={this.props.navigation} onPress={this._openControlPanel}/>
-                    <ScrollView style={styles.container}
+                    <ScrollView style={styles.transparentBackgroud}
                                 scrollEventThrottle={200}
                                 onScroll={(e)=>this._handleScrollEvent(e)}
                                 showsVerticalScrollIndicator={false}
@@ -130,14 +132,12 @@ export default class Weather extends Component {
                         <LifeSuggestion/>
                     </ScrollView>
                 </Image>
-
             </DrawerLayout>
         )
     }
 
 
     render() {
-
         if (__ANDORID__) {
             return this._renderAndroid();
         } else {
@@ -150,5 +150,9 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'rgb(54,57,66)'
+    },
+    transparentBackgroud:{
+        flex:1,
+        backgroundColor: 'transparent'
     }
 });

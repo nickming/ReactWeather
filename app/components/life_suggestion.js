@@ -30,7 +30,6 @@ export default class LifeSuggestion extends Component {
                 <SuggestionItem index={4}/>
                 <SuggestionItem index={5}/>
                 <SuggestionItem index={6}/>
-                <SuggestionItem index={7}/>
             </View>
         )
     }

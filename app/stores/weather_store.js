@@ -10,6 +10,7 @@ import SuggestionInfo from  '../model/suggestion_info'
 import CityItemInfo from '../model/city_item_info'
 import stateStore from './state_store'
 import ApiConfig from '../config/index'
+import Speech from 'native-speech'
 
 class WeatherStore {
 
@@ -121,6 +122,11 @@ class WeatherStore {
         this.convertAqiToList(weatherData);
         this.convertSuggestionList(weatherData);
         this.saveCityItem(weatherData);
+        let voiceContent=weatherData.basic.city+'现在'+weatherData.now.cond.txt+',气温'+
+            weatherData.now.tmp+'度';
+        Speech.speak(voiceContent,()=>{
+            console.log('语音回调成功!') 
+        })
     }
 
     saveCityItem(weatherData) {
@@ -157,7 +163,8 @@ class WeatherStore {
     convertSuggestionList(weatherData) {
         this.lifeList = [];
         let suggestion = weatherData.suggestion;
-        this.lifeList.push(new SuggestionInfo('空气指数', suggestion.air.brf, suggestion.air.txt));
+        // 空气信息已丢失，接口问题
+        // this.lifeList.push(new SuggestionInfo('空气指数', '信息暂无', '信息暂无'));
         this.lifeList.push(new SuggestionInfo('舒适指数', suggestion.comf.brf, suggestion.comf.txt));
         this.lifeList.push(new SuggestionInfo('洗车指数', suggestion.cw.brf, suggestion.cw.txt));
         this.lifeList.push(new SuggestionInfo('穿衣指数', suggestion.drsg.brf, suggestion.drsg.txt));

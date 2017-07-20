@@ -26,6 +26,10 @@ export default class SettingScreen extends Component {
         this.state = {};
     }
 
+    _showClearDialog=()=>{
+        alert('清除成功!')
+    }
+
     render() {
         return (
             <ScrollView>
@@ -35,7 +39,12 @@ export default class SettingScreen extends Component {
                         <Switch style={styles.itemRight}></Switch>
                     </View>
                     <Divider dividerHeight={1}/>
-                    <TouchableOpacity onPress={alert('清除成功!')}>
+                    <View style={styles.itemContainer}>
+                        <Text style={styles.text}>自动语音播报</Text>
+                        <Switch style={styles.itemRight}></Switch>
+                    </View>
+                    <Divider dividerHeight={1}/>
+                    <TouchableOpacity onPress={this._showClearDialog}>
                         <View style={styles.itemContainer}>
                             <Text style={styles.text}>清除缓存</Text>
                             <Icon name='arrow-right' color={'rgb(54,57,66)'} size={15}
