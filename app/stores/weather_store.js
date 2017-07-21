@@ -2,15 +2,16 @@
  * Created by nickming on 2017/5/11.
  */
 'use strict';
-import {observable, computed, asMap, autorun} from 'mobx';
+import { observable, computed, asMap, autorun } from 'mobx';
 import Weather from '../model/weather_info';
-import {ListView} from 'react-native';
+import { ListView,NetInfo } from 'react-native';
 import AqiItem from '../model/aqi_item_info';
-import SuggestionInfo from  '../model/suggestion_info'
+import SuggestionInfo from '../model/suggestion_info'
 import CityItemInfo from '../model/city_item_info'
 import stateStore from './state_store'
 import ApiConfig from '../config/index'
 import Speech from 'native-speech'
+import MscSpeech from '../util/native_util'
 
 class WeatherStore {
 
@@ -23,7 +24,7 @@ class WeatherStore {
     @observable lifeList = [];
     @observable loading = true;
 
-    ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
 
     constructor() {
 
@@ -66,7 +67,7 @@ class WeatherStore {
             this.requestWeatherByLongitudeAndLatitude(position.coords.longitude + ',' + position.coords.latitude);
         }, (error) => {
             alert(JSON.stringify(error));
-        }, {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000});
+        }, { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 });
         weatherStore.watchId = navigator.geolocation.watchPosition((position) => {
             weatherStore.lastPosition = position
         });
@@ -122,13 +123,37 @@ class WeatherStore {
         this.convertAqiToList(weatherData);
         this.convertSuggestionList(weatherData);
         this.saveCityItem(weatherData);
-        let voiceContent=weatherData.basic.city+'现在'+weatherData.now.cond.txt+',气温'+
-            weatherData.now.tmp+'度';
-        Speech.speak(voiceContent,()=>{
-            console.log('语音回调成功!') 
-        })
+        let voiceContent = weatherData.basic.city + '现在' + weatherData.now.cond.txt + ',气温' +
+            weatherData.now.tmp + '度';
+        this.speakWeather(voiceContent);
     }
 
+    /**
+     * 进行语音输出
+     * android端采用讯飞云语音合成，ios端采用自带的tts合成
+     * @param {语音输出内容} content 
+     */
+    speakWeather(content) {
+        if (__IOS__) {
+            Speech.speak(voiceContent,()=>{
+                console.log('语音回调成功!');
+            })
+        } else {
+            NetInfo.isConnected.fetch().done((isConnected)=>{
+                if(isConnected)
+                    MscSpeech.speak(content,()=>{
+                        console.log('讯飞回调成功!')
+                    })
+                else
+                    alert('Android需要连接网络才能语音播报!')
+            });
+        }
+    }
+
+    /**
+     * 存储天气数据
+     * @param {*单项天气数据} weatherData 
+     */
     saveCityItem(weatherData) {
         let flag = -1;
         for (let i = 0; i < stateStore.cityList.length; i++) {

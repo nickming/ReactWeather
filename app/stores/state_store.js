@@ -7,6 +7,7 @@ import {StyleSheet, ListView} from 'react-native';
 import weatherStore from './weather_store'
 import storage from '../config/storage_config'
 
+
 class StateStore {
     @observable scrollToEnd = false;
     @observable currentCityEngName = '';
