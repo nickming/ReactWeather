@@ -6,10 +6,10 @@ import CityScreen from '../containers/city_screen'
 import TestScreen from '../containers/test_screen'
 
 const Navigation = StackNavigator({
-    TestScreen: {screen: TestScreen},
     WeatherScreen: {screen: WeatherScreen},
     SettingScreen: {screen: SettingScreen},
-    CityScreen: {screen: CityScreen}
+    CityScreen: {screen: CityScreen},
+    TestScreen:{screen:TestScreen}
 });
 
 export default Navigation

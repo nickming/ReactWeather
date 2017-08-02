@@ -4,15 +4,14 @@
 'use strict';
 import { observable, computed, asMap, autorun } from 'mobx';
 import Weather from '../model/weather_info';
-import { ListView,NetInfo } from 'react-native';
+import { ListView, NetInfo } from 'react-native';
 import AqiItem from '../model/aqi_item_info';
 import SuggestionInfo from '../model/suggestion_info'
 import CityItemInfo from '../model/city_item_info'
 import stateStore from './state_store'
 import ApiConfig from '../config/index'
 import Speech from 'native-speech'
-// import native_util from '../util/native_util'
-import NativeMoudle from '../util/native_util'
+import MscSpeech from 'react-native-msc-speech'
 
 class WeatherStore {
 
@@ -135,21 +134,16 @@ class WeatherStore {
      * @param {语音输出内容} content 
      */
     speakWeather(content) {
-        if (__IOS__) {
-            // Speech.speak(content,()=>{
-            //     console.log('语音回调成功!');
-            // })
-            // native_util.IOS.testNative('nickming',{
-            //     height:100,
-            //     weight:200
-            // });
-            NativeMoudle.IOS.doSomething('hello world!');
+        if (!__ANDORID__) {
+            MscSpeech.speak(true, content, () => {
+                console.log('ios输出!')
+            });
         } else {
-            NetInfo.isConnected.fetch().done((isConnected)=>{
-                if(isConnected)
-                    NativeMoudle.Android.speak(content,()=>{
-                        console.log('讯飞回调成功!')
-                    })
+            NetInfo.isConnected.fetch().done((isConnected) => {
+                if (isConnected)
+                    MscSpeech.speak(false, content, () => {
+                        console.log('android输出')
+                    });
                 else
                     alert('Android需要连接网络才能语音播报!')
             });

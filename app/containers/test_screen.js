@@ -5,8 +5,8 @@ import { Text, View, StyleSheet, StatusBar, TouchableOpacity } from 'react-nativ
 
 // var TbsWebView = require('../components/tbs_webview');
 import { NewTbsWebView } from 'tbs-webview-module';
-import NativeUtil from '../util/native_util';
 import MscSpeech from 'react-native-msc-speech';
+// import IOSNativeSpeech from 'native-speech';
 
 export default class TestScreen extends Component {
 
@@ -20,11 +20,13 @@ export default class TestScreen extends Component {
 
     _onPressTest = () => {
         if (__ANDORID__) {
-            MscSpeech.speak('hello world', () => {
+            MscSpeech.speak(false,'我是来自android的语音', () => {
                 console.log('讯飞回调成功!')
             });
         } else {
-            MscSpeech.doSomething('fuck you react native');
+            MscSpeech.speak(true,'我是来自ios的语音',()=>{
+                console.log('ios native speech')
+            });
         }
     }
 
