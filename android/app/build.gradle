@@ -126,13 +126,14 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-msc-speech')
+    compile project(':tbs-webview-module')
     compile project(':native-speech')
     compile project(':react-native-vector-icons')
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:23.0.1'
     compile 'com.facebook.react:react-native:+'
     // From node_modules
-    compile project(':msc-speech')
 }
 
 // Run this once to be able to run the application with BUCK

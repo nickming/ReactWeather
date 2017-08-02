@@ -1,4 +1,8 @@
 'use strict';
 import { NativeModules } from 'react-native';
 
-export default NativeModules.MSCSpeechModule;
+
+module.exports={
+    IOS:NativeModules.NativeTest,
+    Android:NativeModules.MSCSpeechModule
+}

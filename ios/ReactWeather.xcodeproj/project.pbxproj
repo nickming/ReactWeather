@@ -41,6 +41,7 @@
 		48C0AAD1285E4C4683E80273 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E52C5E51C40E45C292CAFC38 /* EvilIcons.ttf */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		612BDCB1EF904E89A3E41A04 /* libspeech.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C09A38F1B93241F3903DE03F /* libspeech.a */; };
+		7174583C9E294972BAC737F2 /* libMscSpeech.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BFABC9C3AC9D46F88B1AF968 /* libMscSpeech.a */; };
 		7A949BD0F1944753BC78D854 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 164D06036B0E4CA5AB726DD7 /* Ionicons.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		90962AE4A7BA4DE1B646E5F9 /* libRCTSmartKeyboard.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02A05F7677BE4F03B0610B27 /* libRCTSmartKeyboard.a */; };
@@ -262,6 +263,13 @@
 			remoteGlobalIDString = B1C5AE211DC9C8F000CF1D49;
 			remoteInfo = speech;
 		};
+		A2F2B7041F284494007CC68F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 58329E67DDA441DFAD2E81DE /* MscSpeech.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A2F2B6E71F2769BF007CC68F;
+			remoteInfo = MscSpeech;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -293,6 +301,7 @@
 		2D02E47B1E0B4A5D006451C7 /* ReactWeather-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ReactWeather-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* ReactWeather-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ReactWeather-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4181163016E24ABABC0F9D4F /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		58329E67DDA441DFAD2E81DE /* MscSpeech.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = MscSpeech.xcodeproj; path = "../node_modules/react-native-msc-speech/ios/MscSpeech.xcodeproj"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		6E4471E54547451B96A54E32 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
@@ -302,6 +311,7 @@
 		9F0C7B080AFD48A2A9A81B98 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		A3CB77E388D5472DB12E4FFC /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		B384E12E0CBC4F3693E27956 /* speech.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = speech.xcodeproj; path = "../node_modules/native-speech/ios/speech/speech.xcodeproj"; sourceTree = "<group>"; };
+		BFABC9C3AC9D46F88B1AF968 /* libMscSpeech.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libMscSpeech.a; sourceTree = "<group>"; };
 		C09A38F1B93241F3903DE03F /* libspeech.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libspeech.a; sourceTree = "<group>"; };
 		E52C5E51C40E45C292CAFC38 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		F7F7AF960B9941E2B27990B3 /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
@@ -334,6 +344,7 @@
 				90962AE4A7BA4DE1B646E5F9 /* libRCTSmartKeyboard.a in Frameworks */,
 				BB44AF7760F540ECA9B3BE11 /* libRNVectorIcons.a in Frameworks */,
 				612BDCB1EF904E89A3E41A04 /* libspeech.a in Frameworks */,
+				7174583C9E294972BAC737F2 /* libMscSpeech.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,6 +514,7 @@
 				2518C05C66B442EDA6E3544B /* RCTSmartKeyboard.xcodeproj */,
 				A3CB77E388D5472DB12E4FFC /* RNVectorIcons.xcodeproj */,
 				B384E12E0CBC4F3693E27956 /* speech.xcodeproj */,
+				58329E67DDA441DFAD2E81DE /* MscSpeech.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -577,6 +589,14 @@
 			isa = PBXGroup;
 			children = (
 				A2DA4A621F20DDDA00F2C3BE /* libspeech.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A2F2B7011F284494007CC68F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A2F2B7051F284494007CC68F /* libMscSpeech.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -695,6 +715,10 @@
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = A2F2B7011F284494007CC68F /* Products */;
+					ProjectRef = 58329E67DDA441DFAD2E81DE /* MscSpeech.xcodeproj */;
+				},
 				{
 					ProductGroup = 00C302A81ABCB8CE00DB3ED1 /* Products */;
 					ProjectRef = 00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */;
@@ -959,6 +983,13 @@
 			remoteRef = A2DA4A611F20DDDA00F2C3BE /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		A2F2B7051F284494007CC68F /* libMscSpeech.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libMscSpeech.a;
+			remoteRef = A2F2B7041F284494007CC68F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -1112,12 +1143,14 @@
 					"$(SRCROOT)/../node_modules/react-native-smart-keyboard/ios/RCTSmartKeyboard/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/native-speech/ios/speech/**",
+					"$(SRCROOT)/../node_modules/react-native-msc-speech/ios/MscSpeech",
 				);
 				INFOPLIST_FILE = ReactWeatherTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1142,12 +1175,14 @@
 					"$(SRCROOT)/../node_modules/react-native-smart-keyboard/ios/RCTSmartKeyboard/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/native-speech/ios/speech/**",
+					"$(SRCROOT)/../node_modules/react-native-msc-speech/ios/MscSpeech",
 				);
 				INFOPLIST_FILE = ReactWeatherTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1174,6 +1209,7 @@
 					"$(SRCROOT)/../node_modules/react-native-smart-keyboard/ios/RCTSmartKeyboard/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/native-speech/ios/speech/**",
+					"$(SRCROOT)/../node_modules/react-native-msc-speech/ios/MscSpeech",
 				);
 				INFOPLIST_FILE = ReactWeather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1200,6 +1236,7 @@
 					"$(SRCROOT)/../node_modules/react-native-smart-keyboard/ios/RCTSmartKeyboard/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/native-speech/ios/speech/**",
+					"$(SRCROOT)/../node_modules/react-native-msc-speech/ios/MscSpeech",
 				);
 				INFOPLIST_FILE = ReactWeather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1232,11 +1269,13 @@
 					"$(SRCROOT)/../node_modules/react-native-smart-keyboard/ios/RCTSmartKeyboard/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/native-speech/ios/speech/**",
+					"$(SRCROOT)/../node_modules/react-native-msc-speech/ios/MscSpeech",
 				);
 				INFOPLIST_FILE = "ReactWeather-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1270,11 +1309,13 @@
 					"$(SRCROOT)/../node_modules/react-native-smart-keyboard/ios/RCTSmartKeyboard/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/native-speech/ios/speech/**",
+					"$(SRCROOT)/../node_modules/react-native-msc-speech/ios/MscSpeech",
 				);
 				INFOPLIST_FILE = "ReactWeather-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1309,6 +1350,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.ReactWeather-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1333,6 +1375,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",

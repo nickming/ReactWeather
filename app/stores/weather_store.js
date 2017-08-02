@@ -11,7 +11,8 @@ import CityItemInfo from '../model/city_item_info'
 import stateStore from './state_store'
 import ApiConfig from '../config/index'
 import Speech from 'native-speech'
-import MscSpeech from '../util/native_util'
+// import native_util from '../util/native_util'
+import NativeMoudle from '../util/native_util'
 
 class WeatherStore {
 
@@ -135,13 +136,18 @@ class WeatherStore {
      */
     speakWeather(content) {
         if (__IOS__) {
-            Speech.speak(voiceContent,()=>{
-                console.log('语音回调成功!');
-            })
+            // Speech.speak(content,()=>{
+            //     console.log('语音回调成功!');
+            // })
+            // native_util.IOS.testNative('nickming',{
+            //     height:100,
+            //     weight:200
+            // });
+            NativeMoudle.IOS.doSomething('hello world!');
         } else {
             NetInfo.isConnected.fetch().done((isConnected)=>{
                 if(isConnected)
-                    MscSpeech.speak(content,()=>{
+                    NativeMoudle.Android.speak(content,()=>{
                         console.log('讯飞回调成功!')
                     })
                 else
